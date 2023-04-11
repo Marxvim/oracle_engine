@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Oracle Engine</title>
+  <script nonce="undefined" src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+        
+    }
+
+    .chart--container {
+      height: 100%;
+      width: 100%;
+      min-height: 350px;
+    }
+
+    .zc-ref {
+      display: none;
+    }
+
+    .container {
+      background-color: #221f2d;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-gap: 10px;
+    }
+      
+    h1 {
+         color: white; 
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+         margin: auto;
+      width: 50%;
+      padding: 10px;
+      }
+      
+h2, h3, h4, b {
+         color: grey; 
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: auto;
+      width: 50%;
+      padding: 10px;
+      }
+    .pie-chart {
+      grid-column: 4;
+      grid-row: 2;
+    }
+
+    .line-chart {
+      grid-column: 1 / 2;
+      grid-row: 1;
+    }
+
+    .hbar-chart {
+      grid-column: 2 / 5;
+      grid-row: 1;
+    }
+      
+    .tree-chart {
+      grid-column: 1 / 5;
+      grid-row: /6 ;
+    }
+
+    .bar-chart {
+      grid-column: 1 / 4;
+      grid-row: 2;
+    }
+
+    .filler-chart-one {
+      grid-column: 1 / 3;
+      grid-row: 3;
+    }
+
+    .filler-chart-two {
+      grid-column: 3/ 5;
+      grid-row: 3;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- CHART CONTAINER -->
+  <div class="header">
+      <h1> Oracle Engine</h1> 
+      <h3> Oracle Architecture and Services</h3>
+      <p align="center" width="30%">
+    <img width="30%" src="https://media.giphy.com/media/HZGgKm3w5k7xeKVU2l/giphy.gif">
+      </p>      
+  </div>
+    <h4> copyright Marxvim 2023</h4>
+    <br><br>
+  <div class="container">
+    <div id="myChart" class="chart--container tree-chart"></div>
+    <div id="myChart2" class="chart--container line-chart"></div>
+    <div id="myChart3" class="chart--container hbar-chart"></div>
+    <div id="myChart4" class="chart--container bar-chart"></div>
+    <div id="myChart1" class="chart--container pie-chart"></div>
+    <div id="myChart5" class="chart--container filler-chart-one"></div>
+    <div id="myChart6" class="chart--container filler-chart-two"></div>
+    <a class="zc-ref" href="https://www.zingchart.com/">Powered by Marxvim Oracle Architecture and Services</a>
+  </div>
+  <script>
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"]; // window:load event for Javascript to run after HTML
+    // because this Javascript is injected into the document head
+    window.addEventListener('load', () => {
+      // Javascript code to execute after DOM content
+
+      // full ZingChart schema can be found here:
+      // https://www.zingchart.com/docs/api/json-configuration/
+      let chartData = [{
+          id: 'theworld',
+          parent: '',
+          name: 'Node: 6 \nType: Alpha \nAccuracy: 0.86'
+        },
+        {
+          id: 'asia',
+          parent: 'theworld',
+          name: 'Penrose Node',
+          value: 4100000000
+        },
+        {
+          id: 'africa',
+          parent: 'theworld',
+          name: 'Gpt Node',
+          value: 1260000000
+        },
+        {
+          id: 'america',
+          parent: 'theworld',
+          name: 'Malta Node',
+          value: 328000000
+        },
+        {
+          id: 'europe',
+          parent: 'theworld',
+          name: 'Europe',
+          value: 741000000
+        },
+        {
+          id: 'ca',
+          parent: 'africa',
+          name: 'California',
+          value: 32000000
+        },
+        {
+          id: 'ny',
+          parent: 'america',
+          name: 'New York',
+          value: 19000000
+        },
+        {
+          id: 'txt',
+          parent: 'america',
+          name: 'Texas',
+          value: 29000000
+        },
+      ];
+      let chartConfigLine = {
+        type: 'line',
+        backgroundColor: '#2f2b3f',
+        title: {
+          text: 'Engine Response',
+          fontColor: '#7d798d',
+          fontSize: '14px',
+          textAlign: 'left',
+        },
+        plot: {
+          aspect: 'spline',
+        },
+        scaleX: {
+          values: ['Aug 1', 'Aug 10', 'Aug 17'],
+          lineColor: 'none',
+          tick: {
+            visible: false,
+          },
+        },
+        scaleY: {
+          guide: {
+            lineColor: 'none',
+          },
+          lineColor: 'none',
+          tick: {
+            visible: false,
+          },
+        },
+        series: [{
+          values: [
+            [0, 1],
+            [0.2, 1.2],
+            [0.4, 0.7],
+            [1, 0.5],
+            [1.2, 2],
+            [1.4, 1.5],
+            [1.6, 3],
+            [2, 4],
+          ],
+          lineColor: '#5f5596',
+          marker: {
+            backgroundColor: '#e496d5',
+            borderColor: 'none',
+            size: '4%',
+          },
+        }, ],
+      };
+
+      let chartConfigPie = {
+        type: 'pie3d',
+        backgroundColor: '#2f2b3f',
+        title: {
+          text: 'Transmission',
+          fontColor: '#7d798d',
+          fontSize: '14px',
+          textAlign: 'left'
+        },
+        plot: {
+          valueBox: {
+            text: '%t\n%npv%',
+            placement: 'out'
+          },
+          borderColor: 'none'
+        },
+        series: [{
+            text: 'Auto',
+            values: [85],
+            backgroundColor: '#7121ea'
+          },
+          {
+            text: 'Air',
+            values: [8],
+            backgroundColor: '#ee98d0'
+          },
+          {
+            text: 'Boat',
+            values: [7],
+            backgroundColor: '#30b8ea'
+          },
+        ],
+      };
+
+      let chartConfigBar = {
+        type: 'bar',
+        backgroundColor: '#2f2b3f',
+        title: {
+          text: 'Node Results',
+          fontColor: '#7d798d',
+          fontSize: '14px',
+          textAlign: 'left',
+        },
+        scaleX: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jul', 'Aug'],
+          lineColor: 'none',
+          tick: {
+            visible: false,
+          },
+        },
+        scaleY: {
+          values: '0:100:20',
+          labels: ['20k', '40k', '60k', '80k', '100k', '120k'],
+          guide: {
+            visible: false,
+          },
+          lineColor: 'none',
+          tick: {
+            visible: false,
+          },
+        },
+        series: [{
+            values: [100, 20, 90, 80, 80, 50, 30],
+            backgroundColor: '#7f70ce',
+            barWidth: '5px',
+          },
+          {
+            values: [20, 10, 20, 50, 50, 40, 70],
+            backgroundColor: '#ee98d0',
+            barWidth: '5px',
+          },
+          {
+            values: [30, 20, 40, 60, 40, 60, 30],
+            backgroundColor: '#30b8ea',
+            barWidth: '5px',
+          },
+        ],
+      };
+
+      let chartConfigHBar = {
+        type: 'hbar',
+        backgroundColor: '#2f2b3f',
+        title: {
+          text: 'By Country',
+          fontColor: '#7d798d',
+          fontSize: '14px',
+          textAlign: 'left',
+        },
+        plotarea: {
+          margin: '25% 45% 20% 8%',
+        },
+        scaleX: {
+          values: ['US', 'France', 'India', 'Colombia'],
+          guide: {
+            visible: false,
+          },
+          item: {
+            fontSize: '10px',
+          },
+          lineColor: 'none',
+          tick: {
+            visible: false,
+          },
+        },
+        scaleY: {
+          guide: {
+            visible: false,
+          },
+          item: {
+            visible: false,
+          },
+          lineColor: 'none',
+          tick: {
+            visible: false,
+          },
+        },
+        series: [{
+            values: [5, 6, 7, 5.5],
+            backgroundColor: '#7f70ce',
+            barWidth: '5px',
+          },
+          {
+            values: [5.5, 6.2, 7.5, 5.7],
+            backgroundColor: '#5ab0d0',
+            barWidth: '5px',
+          },
+          {
+            values: [8, 8, 8, 8],
+            backgroundColor: '#3f3c4f',
+            barWidth: '5px',
+          },
+        ],
+      };
+        
+     let chartConfig = {
+        type: 'tree',
+        options: {
+          aspect: 'tree-left',
+          link: {
+            aspect: 'arc'
+          },
+          maxSize: 30,
+          minSize: 20,
+          node: {
+            type: 'circle',
+              label: {
+                    color: '#fff',
+                    fontSize: '10px'
+                  },
+            tooltip: {
+              padding: '8px 10px',
+              borderRadius: '3px',
+            }
+          }
+        },
+        backgroundColor: '#2f2b3f',
+        series: chartData
+      };
+
+      zingchart.render({
+        id: 'myChart',
+        data: chartConfig,
+        height: '100%',
+        width: '100%',
+        output: 'canvas'
+      });
+
+      // render chart
+      zingchart.render({
+        id: 'myChart1',
+        data: chartConfigPie,
+        height: '100%',
+        width: '100%',
+      });
+
+      zingchart.render({
+        id: 'myChart2',
+        data: chartConfigLine,
+        height: '100%',
+        width: '100%',
+      });
+
+      zingchart.render({
+        id: 'myChart3',
+        data: chartConfigHBar,
+        height: '100%',
+        width: '100%',
+      });
+
+      zingchart.render({
+        id: 'myChart4',
+        data: chartConfigBar,
+        height: '100%',
+        width: '100%',
+      });
+
+      zingchart.render({
+        id: 'myChart5',
+        data: chartConfigPie,
+        height: '100%',
+        width: '100%',
+      });
+
+      zingchart.render({
+        id: 'myChart6',
+        data: chartConfigPie,
+        height: '100%',
+        width: '100%',
+      });
+    });
+  </script>
+</body>
+
+</html>
