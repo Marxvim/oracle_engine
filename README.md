@@ -9,7 +9,6 @@
  Copyright 2022
  
 ### LINKS
-- [prod](http://marxvimras.heroku.com/marxvim/stockBot/1.0.0/swagger-ui/index.html?configUrl=/marxvim/stockBot/1.0.0/v3/api-docs/swagger-config#/)
-- [dev](http://34.123.149.119:8080/marxvim/stockBot/1.0.0/trades/)
-- [local](http://localhost:8080/marxvim/stockBot/1.0.0/)
+- [Getting Started](https://marxvim-1.gitbook.io/developers/oracle-engine/getting-started)
+- [Marxvim](https://www.marxvim.com)
 
