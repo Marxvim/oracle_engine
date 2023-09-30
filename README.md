@@ -6,7 +6,7 @@
 
 #### Reporter Architecture & Services
 ##### Marxvim Finance
- Copyright 2022
+ Copyright 2024
  
 ### LINKS
 - [Getting Started](https://marxvim-1.gitbook.io/developers/oracle-engine/getting-started)
